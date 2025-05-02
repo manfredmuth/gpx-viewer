@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GPX Tracks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1;
+      padding: 2em;
+    }
+    ul {
+      line-height: 1.6;
+    }
+    footer {
+      background-color: #f8f8f8;
+      padding: 1em;
+      text-align: center;
+      font-size: 1em;
+      border-top: 1px solid #ddd;
+    }
+    footer img {
+      height: 40px;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Verfügbare GPX-Tracks</h1>
+    <ul>
+      {{tracks}}
+    </ul>
+  </main>
+  <footer>
+    Tribute for the tracks goes to 
+    <a href="https://www.redsport-frankfurt.de" target="_blank">redsport-frankfurt.de</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Cyclist_pictogram.svg/200px-Cyclist_pictogram.svg.png" alt="Cyclist" />
+  </footer>
+</body>
+</html>
