@@ -1,30 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>GPX Viewer</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.5.0/gpx.min.js"></script>
+  <meta charset="UTF-8" />
+  <title>List of tracks available</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha512-..."
+    crossorigin=""
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha512-..."
+    crossorigin=""
+  ></script>
+  <script src="https://unpkg.com/togeojson@0.16.0"></script>
+  <script src="https://unpkg.com/@mapbox/togeojson"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
   <style>
-    #map { height: 95vh; width: 100%; }
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    #map {
+      flex: 1;
+    }
+    footer {
+      background-color: #f8f8f8;
+      padding: 1em;
+      text-align: center;
+      font-size: 1em;
+      border-top: 1px solid #ddd;
+    }
+    footer img {
+      height: 40px;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
   </style>
 </head>
 <body>
   <div id="map"></div>
+
+  <footer>
+    Tribute for the tracks goes to 
+    <a href="https://www.radsport-frankfurt.de" target="_blank">radsport-frankfurt.de</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Cyclist_pictogram.svg/200px-Cyclist_pictogram.svg.png" alt="Cyclist" />
+  </footer>
+
   <script>
-    function getGPXFilename() {
-      const params = new URLSearchParams(window.location.search);
-      return params.get("file");
-    }
+    const urlParams = new URLSearchParams(window.location.search);
+    const gpxFile = urlParams.get('file') || 'demo1.gpx';
 
-    const gpxFile = getGPXFilename();
-    const map = L.map('map').setView([48, 11], 8);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    const map = L.map('map').setView([50.1, 8.6], 10);
 
-    new L.GPX('gpx/' + gpxFile, { async: true }).on('loaded', function(e) {
-      map.fitBounds(e.target.getBounds());
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
     }).addTo(map);
+
+    const gpx = new L.GPX('gpx/' + gpxFile, {
+      async: true,
+      marker_options: {
+        startIconUrl: 'https://unpkg.com/leaflet-gpx@1.5.1/pin-icon-start.png',
+        endIconUrl: 'https://unpkg.com/leaflet-gpx@1.5.1/pin-icon-end.png',
+        shadowUrl: 'https://unpkg.com/leaflet-gpx@1.5.1/pin-shadow.png',
+      },
+    })
+      .on('loaded', function (e) {
+        map.fitBounds(e.target.getBounds());
+      })
+      .addTo(map);
   </script>
 </body>
 </html>
