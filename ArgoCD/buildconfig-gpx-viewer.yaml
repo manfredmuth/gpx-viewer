@@ -1,0 +1,52 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ""
+    app.openshift.io/vcs-uri: https://github.com/manfredmuth/gpx-viewer
+    openshift.io/generated-by: OpenShiftWebConsole
+  labels:
+    app: gpx-viewer
+    app.kubernetes.io/component: gpx-viewer
+    app.kubernetes.io/instance: gpx-viewer
+    app.kubernetes.io/name: gpx-viewer
+    app.kubernetes.io/part-of: gpx-viewer-app
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 20-ubi8
+  name: gpx-viewer
+  namespace: gpx-viewer
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: gpx-viewer:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    contextDir: /
+    git:
+      uri: https://github.com/manfredmuth/gpx-viewer
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: nodejs:20-ubi8
+        namespace: openshift
+    type: Source
+  successfulBuildsHistoryLimit: 5
+  triggers:
+    - generic:
+        secretReference:
+          name: gpx-viewer-generic-webhook-secret
+      type: Generic
+    - github:
+        secretReference:
+          name: gpx-viewer-github-webhook-secret
+      type: GitHub
+    - imageChange: {}
+      type: ImageChange
+    - type: ConfigChange

@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/route-disabled: "false"
+    app.openshift.io/vcs-ref: ""
+    app.openshift.io/vcs-uri: https://github.com/manfredmuth/gpx-viewer
+    deployment.kubernetes.io/revision: "1"
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"gpx-viewer:latest","namespace":"gpx-viewer"},"fieldPath":"spec.template.spec.containers[?(@.name==\"gpx-viewer\")].image","paused":"false"}]'
+    openshift.io/generated-by: OpenShiftWebConsole
+  labels:
+    app: gpx-viewer
+    app.kubernetes.io/component: gpx-viewer
+    app.kubernetes.io/instance: gpx-viewer
+    app.kubernetes.io/name: gpx-viewer
+    app.kubernetes.io/part-of: gpx-viewer-app
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 20-ubi8
+  name: gpx-viewer
+  namespace: gpx-viewer
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: gpx-viewer
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: gpx-viewer
+        deployment: gpx-viewer
+    spec:
+      containers:
+        - image: image-registry.openshift-image-registry.svc:5000/gpx-viewer/gpx-viewer:latest
+          imagePullPolicy: Always
+          name: gpx-viewer
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

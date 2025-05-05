@@ -1,0 +1,30 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ""
+    app.openshift.io/vcs-uri: https://github.com/manfredmuth/gpx-viewer
+    openshift.io/generated-by: OpenShiftWebConsole
+    openshift.io/host.generated: "true"
+  labels:
+    app: gpx-viewer
+    app.kubernetes.io/component: gpx-viewer
+    app.kubernetes.io/instance: gpx-viewer
+    app.kubernetes.io/name: gpx-viewer
+    app.kubernetes.io/part-of: gpx-viewer-app
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 20-ubi8
+  name: gpx-viewer
+  namespace: gpx-viewer
+spec:
+  host: gpx-viewer-gpx-viewer.apps.rtfm.servebeer.com
+  port:
+    targetPort: 8080-tcp
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: gpx-viewer
+    weight: 100
+  wildcardPolicy: None
