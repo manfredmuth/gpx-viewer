@@ -11,3 +11,6 @@
 ![GPX viewer create new project](./images/gpx-viewer-04.png)
 
 ![GPX viewer create new project](./images/gpx-viewer-05.png)
+
+
+[cli based approach](cli.md)
