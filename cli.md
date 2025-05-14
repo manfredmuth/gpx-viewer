@@ -24,3 +24,5 @@ Following the current documentation at the time this doc was written {$date}.
 ```oc get packagemanifests argocd-operator -n openshift-marketplace```
 
 ```oc describe packagemanifests argocd-operator -n openshift-marketplace```
+
+[<- Back](./README.md)
