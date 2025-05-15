@@ -25,6 +25,8 @@ cd src
 ./k8s-create-artefacts.sh gpx-viewer
 ```
 
+Be aware that this script use the lightweight yaml processor which comes in the yq package of your *NIX distribution ```sudo dnf install -y yq``` 
+
 A subdirectory k8s will be created and you find all he relevant files there. And all irrelevant metadata will be removed magically.
 
 For our small example there are way too many artefacts. We can focus on the following yaml files
@@ -42,4 +44,5 @@ Now what you achieved is that you did gather all relevant artefacts yourself.
 
 |Navigation|-|-|
 |:-------:|:-------:|:-------:|
-|[README](../README.md)|[BACK](1-base-app-build.md)|[-> NEXT](./2-base-create-artefacts.md)|
+|[README](../README.md)|[<- BACK](./1-base-app-build.md)|[-> NEXT](./3-argo.md)|
+
