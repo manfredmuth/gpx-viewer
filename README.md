@@ -23,6 +23,7 @@ In the next section we will use ArgoCD to deploy our application.
 
 
 
+
 |Navigation|-|-|
 |:-------:|:-------:|:-------:|
-|[cli based approach](docs/cli.md)|dfsf|
+|[cli based approach](docs/cli.md)|--|[-> NEXT](docs/1-base-app-build.md)|
