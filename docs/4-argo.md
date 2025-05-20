@@ -2,12 +2,11 @@
 
 Why should you do so? You might ask yourself.
 
-ArgoCD is the GITOPS why to deploy your application. Not only will ArgoCD keep your deployed application synchronized with the respective branch in your repository.
-You will also be able to deploy your application from scratch in case somebody - by incident - deleted your namespace.
+ArgoCD is the GITOPS way to deploy your application. It will keep your deployed application synchronized with the respective branch in your repository.
 
 So what we will do here is
 - To create an ArgoCD instance
-- Using an S2I approach for our Node.js example
+- Using an Source2Image [S2I] approach for our Node.js example
 
 **Create an ArgoCD instance**
 
@@ -40,8 +39,11 @@ Open the link and login - as we enabled OpenShift OAuth you can use a user you a
 
 The main view of ArgoCD will open up.
 
-What we will do next is that we will create a new application. And be aware that in our OpenShift cluster there is not yet a project called gpx-viewer. All tasks will be carried out by ArgoCD.
+What we will do next is that we will create a new application.
 In case you created your own yaml artefacts as per [YAML artefact creation](./2-base-create-artefacts.md) and might did chosse another namespace name. Please change it in the ArgoCD app creation form view accordingly.
 
+What we have is a running instance of ArgoCD. And we can login to the same.
 
-|[README](../README.md)|[BACK](./3-argo.md)|[-> NEXT](../README.md)|
+A last check on your side should be that you look for the managed cluster in your setting. In case you **do not see a cluster** the rights of the user you did choose to login to ArgoCD are not sufficient. You can switch to another OpenShift user like *kubeadmin*.
+
+|[README](../README.md)|[BACK](../docs/3-argo.md)|[-> NEXT](../docs/1-base-app-build.md)|

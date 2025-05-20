@@ -3,14 +3,16 @@
 In case you skipped the previous steps - no worries - this should work from here out of the box.
 
 We will install the application with help of ArgoCD and for this purpose we first need an ArgoCD installation.
-- We willinstall ArgoCD as operator
-- The operator will reside in the namespace which will have your app later (we do so in order to avoid RBAC and role binding difficulties)
+* We will install ArgoCD as operator
+* The operator will reside in the namespace which will have your app later (we do so in order to avoid RBAC and role binding difficulties)
+* With the operator installed in the same namespace as the application we do restict ourselves at the same time. As we will not be able to recover from an accidentially deleted namesapce 
+
 
 **Navigate in the Administrator view to the operator hub and choose ArgoCD**
 
 ![ArgoCD Operator](../images/argocd-01.png)
 
-**Chosse the ArgoCD operator**
+**Choose the ArgoCD operator**
 
 ![ArgoCD Operator](../images/argocd-02.png)
 
@@ -18,7 +20,7 @@ We will install the application with help of ArgoCD and for this purpose we firs
 
 ![ArgoCD Operator](../images/argocd-03.png)
 
-**Name the ArgoCD namespace as per your personal preferences**
+**Name the ArgoCD namespace gpx-viewer**
 
 ![ArgoCD Operator](../images/argocd-04.png)
 

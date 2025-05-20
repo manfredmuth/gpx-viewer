@@ -1,6 +1,10 @@
 # Build base app
 
-This step is only to be executed in case you start from scratch and thus you - at this point - miss the deployment files which you find in the folder [ArgoCD](../ArgoCD/). As said in this GIT repo everything is already prepared but this example show how the deployment files can be created in case you are not familiar with the yaml artefacts you need.
+This is the first step and the only purpose is to ckech if a manual deployment of the application does work on your cluster. Therefor the deployment artefacts are available in the root tree of this repo. And those are:
+* [server.js](../server.js)
+* [package.json](../package.json)
+
+Those files are key for your Node.js application.
 
 **Create a new project**
 

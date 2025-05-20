@@ -27,11 +27,7 @@ spec:
     provider: dex
   rbac:
     policy: |
-      g, system:cluister-admin, role:admin
-      p, role:admin, applications, *, */*, allow
-      p, role:admin, clusters, get, *, allow
-      g, admin, role:admin
-      g, system:admin, role:admin  # OpenShift admin user
+      g, system:cluster-admins, role:admin
   repo:
     resources:
       limits:
