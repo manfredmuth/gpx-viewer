@@ -31,6 +31,8 @@ In the next section we will use ArgoCD to deploy our application.
 
 ## References
 
-https://github.com/lenocruz/jvm/blob/main/instructions.txt
-https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/rbac.md
-https://github.com/manfredmuth/openshift-gitops-setup
+[ArgoCD and ArgoCD instance RBAC](https://github.com/lenocruz/jvm/blob/main/instructions.txt)
+
+[ArgoCD RBAC details](https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/rbac.md)
+
+[Multi user example](https://github.com/manfredmuth/openshift-gitops-setup)
