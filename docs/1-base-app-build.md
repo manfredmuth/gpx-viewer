@@ -1,6 +1,6 @@
 # Build base app
 
-This is the first step and the only purpose is to ckech if a manual deployment of the application does work on your cluster. Therefor the deployment artefacts are available in the root tree of this repo. And those are:
+This is the first step and the only purpose is to check if a manual deployment of the application does work on your cluster. Therefore the deployment artefacts are available in the root tree of this repo. And those are:
 * [server.js](../server.js)
 * [package.json](../package.json)
 

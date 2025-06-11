@@ -21,9 +21,16 @@ If you would like to move forward with your own artefacts, feel free to do so. T
 
 In the next section we will use ArgoCD to deploy our application.
 
+.... here comes the ArgoCD approach
 
 
 
 |Navigation|-|-|
 |:-------:|:-------:|:-------:|
-|[cli based approach](docs/cli.md)|--|[-> NEXT](docs/1-base-app-build.md)|
+|---|---|[-> NEXT](docs/1-base-app-build.md)|
+
+## References
+
+https://github.com/lenocruz/jvm/blob/main/instructions.txt
+https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/rbac.md
+https://github.com/manfredmuth/openshift-gitops-setup

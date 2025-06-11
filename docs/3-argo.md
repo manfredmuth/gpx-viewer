@@ -1,7 +1,5 @@
 # ArgoCD
 
-In case you skipped the previous steps - no worries - this should work from here out of the box.
-
 We will install the application with help of ArgoCD and for this purpose we first need an ArgoCD installation.
 * We will install ArgoCD as operator
 * The operator will reside in the namespace which will have your app later (we do so in order to avoid RBAC and role binding difficulties)
@@ -15,10 +13,6 @@ We will install the application with help of ArgoCD and for this purpose we firs
 **Choose the ArgoCD operator**
 
 ![ArgoCD Operator](../images/argocd-02.png)
-
-**Install the operator and make sure you create a separate namespace for it**
-
-![ArgoCD Operator](../images/argocd-03.png)
 
 **Name the ArgoCD namespace gpx-viewer**
 

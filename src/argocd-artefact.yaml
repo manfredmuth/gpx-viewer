@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1beta1
 kind: ArgoCD
 metadata:
-  name: argocd
-  namespace: argocd
+  name: gpx-argocd
+  namespace: openshift-operators
 spec:
   server:
     resources:
@@ -28,6 +28,8 @@ spec:
   rbac:
     policy: |
       g, system:cluster-admins, role:admin
+      g, admin, role:admin
+    scopes: '[groups]'
   repo:
     resources:
       limits:
@@ -61,3 +63,5 @@ spec:
       requests:
         cpu: 250m
         memory: 1024Mi
+
+

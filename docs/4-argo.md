@@ -46,4 +46,4 @@ What we have is a running instance of ArgoCD. And we can login to the same.
 
 A last check on your side should be that you look for the managed cluster in your setting. In case you **do not see a cluster** the rights of the user you did choose to login to ArgoCD are not sufficient. You can switch to another OpenShift user like *kubeadmin*.
 
-|[README](../README.md)|[BACK](../docs/3-argo.md)|[-> NEXT](../docs/1-base-app-build.md)|
+|[README](../README.md)|[ BACK ](../docs/3-argo.md)|[ -> NEXT ](../docs/5-argo.md)|
