@@ -6,7 +6,7 @@ And the steps described below are only for those who love to do things themselve
 The purpose of this procedure is to create deployment artefacts which can later be used to deploy an application via ArgoCD. ArgoCD is the GITOPS based approach and will be very easy to follow. It can even help in case of a desaster. Given that maybe somebody did delete your project/namespace by incident.
 
 For now all that matters is ... what makes a deployment complete. In OpenShift the following artefacts are needed:
-
+See [../src/ ](../src/argocd_operator.md)
 * deployment
 * service
 * route
@@ -52,5 +52,5 @@ I recommend you going with the [script](../src/k8s-create-artefacts.sh)
 
 |Navigation|-|-|
 |:-------:|:-------:|:-------:|
-|[README](../README.md)|[<- BACK](./1-base-app-build.md)|[-> NEXT](./3-argo.md)|
+|[README](../README.md)|[<- BACK](./1-base-app-build.md)|[-> NEXT](./4-argo.md)|
 

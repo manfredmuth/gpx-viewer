@@ -1,0 +1,19 @@
+kind: AppProject
+apiVersion: argoproj.io/v1alpha1
+metadata:
+  name: gpx-project
+  namespace: openshift-gitops
+spec:
+  sourceNamespaces:
+  - gpx-viewer
+  sourceRepos:
+    - '*'
+  destinations:
+    - namespace: gpx-viewer
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
