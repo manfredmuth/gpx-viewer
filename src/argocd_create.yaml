@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gpx-viewer
+spec:
+  destination:
+    namespace: gpx-viewer
+    server: https://kubernetes.default.svc
+  source:
+    path: ArgoCD
+    repoURL: https://github.com/manfredmuth/gpx-viewer
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy: {}

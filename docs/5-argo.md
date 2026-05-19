@@ -8,7 +8,7 @@ What we will do in this section
 
 ![Create an application in ArgoCD](../images/app-argo-06.png)
 
-Fill in he details which match your purpose
+Fill in the details which match your purpose
 
 ![Create an application in ArgoCD](../images/argo-new-app_01.png)
 
