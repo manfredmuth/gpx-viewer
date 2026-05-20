@@ -17,7 +17,7 @@ The first steps can be skipped but they give a good overview how you can start f
 
 * [1 - Deploy the app a first time](docs/1-base-app-build.md)
 * [2 - Create the yaml artefacts](docs/2-base-create-artefacts.md)
-* [3 - Create all from scratch with existing artefacts](docs/4-argo.md)
+* [3 - Create all from scratch with existing artefacts](docs/5-argo.md)
 
 ---
 

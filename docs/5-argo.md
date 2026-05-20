@@ -2,9 +2,14 @@
 
 What we will do in this section
 
+- Install the GitOps operator
 - Add a new application in ArgoCD
 - Refer to the GIT repo and the according path to the yaml aretacts
 - Advice ArgoCD to create it in a namespace
+
+**Prepare the environment**
+[See the steps here in argocd_operator.md documentation for an automated approach](../src/argocd_operator.md)
+
 
 ![Create an application in ArgoCD](../images/app-argo-06.png)
 

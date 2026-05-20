@@ -9,7 +9,7 @@ So what we will do here is
 - Using an Source2Image [S2I] approach for our Node.js example
 
 **Prepare the environment**
-[See the steps here in argocd_operator.md documentation](../src/argocd_operator.md)
+[See the steps here in argocd_operator.md documentation for an automated approach](../src/argocd_operator.md)
 
 **Create an ArgoCD instance**
 
