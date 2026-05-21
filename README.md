@@ -18,7 +18,7 @@ The first steps can be skipped but they give a good overview how you can start f
 * [1 - Deploy the app a first time](docs/1-base-app-build.md)
 * [2 - Create the yaml artefacts](docs/2-base-create-artefacts.md)
 * [3 - Create all from scratch with existing artefacts](docs/5-argo.md)
-
+* [4 - See ArgoCD working](docs/6-argo.md)
 ---
 
 If you would like to move forward with your own artefacts, feel free to do so. The following examples will all refer to the existing example in the GIT repo. So you might want to delete the work you did so far in OpenShift by deleting the project
