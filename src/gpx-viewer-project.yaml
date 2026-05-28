@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: gpx-viewer
+  namespace: openshift-gitops
+spec:
+  description: GPX Viewer Monitoring Project
+  sourceRepos:
+  - 'https://github.com/manfredmuth/gpx-viewer'
+  destinations:
+  - namespace: 'gpx-viewer'
+    server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'

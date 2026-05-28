@@ -1,0 +1,22 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: gpx-viewer-build
+  namespace: gpx-viewer
+  labels:
+    app: gpx-viewer
+spec:
+  runPolicy: Serial
+  source:
+    git:
+      uri: https://github.com/manfredmuth/gpx-viewer
+      ref: main
+    type: Git
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+  output:
+    to:
+      kind: ImageStreamTag
+      name: gpx-viewer:latest

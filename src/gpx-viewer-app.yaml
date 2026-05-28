@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gpx-viewer-monitor
+  namespace: openshift-gitops
+  labels:
+    app.kubernetes.io/name: gpx-viewer-monitor
+spec:
+  project: gpx-viewer
+  source:
+    repoURL: https://github.com/manfredmuth/gpx-viewer
+    targetRevision: main
+    path: public/gpx
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gpx-viewer
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
