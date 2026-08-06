@@ -13,9 +13,12 @@ spec:
       ref: main
     type: Git
   strategy:
-    type: Docker
-    dockerStrategy:
-      dockerfilePath: Dockerfile
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: nodejs:20-ubi8
+        namespace: gpx-viewer
   output:
     to:
       kind: ImageStreamTag
