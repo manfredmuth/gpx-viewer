@@ -37,7 +37,7 @@ You want to make sure that:
 
 ![GPX viewer image builder info](../images/gpx-viewer-06.png)
 
-* That you use a secure route by default. You do need to provide signed certificates if you do not have access to such certificates. OpenShift will generate a local certificate on your behalf.
+* To you use a secure route by default. You do need to provide signed certificates if you do not have access to such certificates. OpenShift will generate a local certificate on your behalf.
 
 ![GPX viewer TLS](../images/gpx-viewer-07.png)
 
