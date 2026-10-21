@@ -1,0 +1,71 @@
+# Applied by hand:
+#   oc apply -f pipelines/gpx-viewer-ci.yaml
+#
+# Create the Secret github-webhook-config first. It is not in this file
+# because it holds the GitHub token and the webhook secret.
+#
+# The RoleBinding, Pipeline, and Repository stay in the cluster.
+# The PipelineRun starts one build when it is first created.
+# Applying this file again does not start another build.
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: edit
+  namespace: gpx-viewer
+subjects:
+  - kind: ServiceAccount
+    name: pipeline
+    namespace: gpx-viewer
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: edit
+---
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: gpx-viewer-public
+  namespace: gpx-viewer
+spec:
+  tasks:
+    - name: rebuild
+      taskRef:
+        resolver: cluster
+        params:
+          - name: kind
+            value: task
+          - name: name
+            value: openshift-client
+          - name: namespace
+            value: openshift-pipelines
+      params:
+        - name: SCRIPT
+          value: |
+            oc start-build gpx-viewer --follow --wait
+            oc rollout status deployment/gpx-viewer --timeout=300s
+---
+apiVersion: pipelinesascode.tekton.dev/v1alpha1
+kind: Repository
+metadata:
+  name: gpx-viewer
+  namespace: gpx-viewer
+spec:
+  url: https://github.com/manfredmuth/gpx-viewer
+  git_provider:
+    type: github
+    secret:
+      name: github-webhook-config
+      key: provider.token
+    webhook_secret:
+      name: github-webhook-config
+      key: webhook.secret
+---
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  name: gpx-viewer-public-manual
+  namespace: gpx-viewer
+spec:
+  pipelineRef:
+    name: gpx-viewer-public
