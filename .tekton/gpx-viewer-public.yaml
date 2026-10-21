@@ -1,0 +1,14 @@
+# Pipelines as Code reads this file from the main branch.
+# Do not oc apply it. A push to main that changes public/ creates the run.
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  name: gpx-viewer-public
+  annotations:
+    pipelinesascode.tekton.dev/on-event: "[push]"
+    pipelinesascode.tekton.dev/on-target-branch: "[main]"
+    pipelinesascode.tekton.dev/on-path-change: "[public/**]"
+    pipelinesascode.tekton.dev/max-keep-runs: "5"
+spec:
+  pipelineRef:
+    name: gpx-viewer-public
